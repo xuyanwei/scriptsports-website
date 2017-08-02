@@ -1,0 +1,25 @@
+<div id="{{p.name}}" class="uk-modal">
+<div class="uk-modal-dialog" style="height:200px;"><a class="uk-modal-close uk-close"></a>
+<h2 style="text-align:center"><i class="fa fa-desktop fa-lg"></i><i class="fa fa-laptop fa-1g"></i>{{p.name}}</h2>
+<hr /> 
+<div class="live_class"><ul><li>
+<a {%ifequal p.address1|slice:"4" 'http'%}href="{{p.address1}}"{%else%} href="../live_kankan/?tv={{p.id}}&pd=1"{%endifequal%} target="_blank"><span>频道1({{p.langunage}})</span></a></li><li>
+ <a href="../live_kankan/?tv={{p.id}}&pd=2" target="_blank"><span>{%if p.address2%}频道2{%endif%}</span></a></li><li>
+<a href="../live_kankan/?tv={{p.id}}&pd=3" target="_blank"><span>{%if p.address3%}频道3{%endif%}</span></a></li></ul></div><br />
+<p onMouseDown="mobilclick()" align="right"><i class="fa fa-tablet fa-1x"></i>
+<i class="fa fa-mobile fa-1x"></i> 
+</p>
+
+<div class="live_class fr" id="mobi" style="display:none;">
+{%if p.mob_addr%}
+        <ul>
+            <li>
+                <a {%ifequal p.mob_addr|slice:"4" 'http'%} href="{{p.mob_addr}}"{%else%} href="../live_kankan/?tv={{p.id}}&pd=4"{%endifequal%} target="_blank" style="margin-left:160px;"><span>移动频道</span></a>            
+            </li> 
+        </ul>
+{%endif%}
+</div>
+
+    </div>
+
+</div>

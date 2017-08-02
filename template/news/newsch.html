@@ -1,0 +1,49 @@
+{%for p in p_mraw1 %}
+{%if p.important %}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank" style="color:#F03">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%else%}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%endif%}
+{%endfor%}
+
+<hr />
+{%for p in p_mraw2 %}
+{%if p.important %}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank" style="color:#F03">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%else%}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{% endif %}
+{%endfor%}
+
+<hr />
+{%for p in p_mraw3 %}
+{%if p.important %}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank" style="color:#F03">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%else%}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{% endif %}
+{%endfor%}

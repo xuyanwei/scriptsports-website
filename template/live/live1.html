@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="最新、最快、最全的体育赛事视频，赛事集锦" />
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，NBA直播，足球视频，NBA视频，足球下载" />
+    <meta name="keywords" content="快速赛事播报，快速比分推送，快速赛事回放，赛事专业解析" />
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" />
+<title>欢迎来到脚本体育</title>
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/knakan.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="../resource/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../resource/js/kankan.js" type="text/javascript"></script>
+   <script src="../resource/js/ssmain.js" type="text/javascript"></script>  
+
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto;">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news"><span>最新动态</span></a>            </li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live" target="_blank">赛事日历</a></li>
+            <li>
+            <a href="../bbs">社区</a></li>
+          
+        </ul>
+</div>
+
+
+<!--主要内容-->
+<div class="main">
+
+<div>
+<h4 style="text-align:center; margin-top:25px;"><span><i class="fa fa-play fa-2x">{{adr.name}}</i></span><span style="font-size:16px;">(可能需要缓冲)</span></h4>
+<hr />
+</div>
+
+<div>
+<a href="javascript:exp()" style=" font-size:15px; color:#000;text-decoration:none; margin-left:20px;">IE说明</a>
+
+<a id="lgi" href="javascript:light()" style="font-size:15px; color:#000;text-decoration:none; margin-left:880px;">关灯</a>
+
+<div style="display:none" id="safeexp">
+<hr />
+说明：本网站所有脚本绝对安全无病毒！
+<br />
+如果每次使用IE浏览器下方出现 "IE已限制此网页运行脚本或Active控件,点击此处允许" 字样，可进入IE工具—Internet选项—高级；将"允许活动内容在'我的电脑'中运行”项打勾。推荐使用Chrome32.0+、Firefox28.0+浏览器。
+</div>
+</div>
+
+<div class="kaiguan" style="text-align:center;min-height:500px;">
+
+{%ifequal pd 1 %}
+   {%ifequal adr.name 'CCTV5' %}
+   <a href="http://sports.cntv.cn/live/cctv5" style="font-size:22px; text-align:center;">CCTV5(官方CCTV5)</a>
+<hr color="#FFFFFF"/>
+<a href="http://tv.cntv.cn/live/cctv5" style="font-size:22px; text-align:center">CNTV5(官方CNTV5)</a>
+   {%else%}
+       {%ifequal adr.name 'cctv5plus' %}
+       <a href="http://sports.cntv.cn/live/cctv5" style="font-size:22px; text-align:center;">CNTV5+(官方CNTV5+)</a>
+<hr color="#FFFFFF"/>
+<a href="http://tv.cntv.cn/live/cctv5plus" style="font-size:22px; text-align:center">CCTV5+(官方CCTV5+)</a>
+       {%else%}
+          {{adr.address1|safe}}
+       {%endifequal%}
+   {%endifequal%} 
+{% else %}
+   {%ifequal pd 2 %}
+       {{adr.address2|safe}}
+   {%else%}
+       {%ifequal pd 3 %}
+          {{adr.address3|safe}}
+       {%else%}
+          {%ifequal adr.name 'CCTV5' %}
+   <a href="http://sports.cntv.cn/live/cctv5" style="font-size:22px; text-align:center;">CCTV5(官方CCTV5移动设备观看)</a>
+<hr color="#FFFFFF"/>
+<a href="http://tv.cntv.cn/live/cctv5" style="font-size:22px; text-align:center">CNTV5(官方CNTV5移动设备观看)</a>
+   {%else%}
+       {%ifequal adr.name 'cctv5plus' %}
+       <a href="http://sports.cntv.cn/live/cctv5" style="font-size:22px; text-align:center;">CCTV5+(官方CNTV5+移动设备观看)</a>
+<hr color="#FFFFFF"/>
+<a href="http://tv.cntv.cn/live/cctv5plus" style="font-size:22px; text-align:center">CCTV5+(官方CCTV5+移动设备观看)</a>
+       {%else%}
+          {{adr.mob_addr|safe}}
+       {%endifequal%}
+   {%endifequal%} 
+       {%endifequal%}
+   {%endifequal%}
+{%endifequal%}
+
+
+</div>
+
+</div>
+
+{%include 'bottomexp.html'%}
+</body>
+</html>

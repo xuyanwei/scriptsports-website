@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="最新、最快、最全的体育赛事视频，赛事集锦" />
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，NBA直播，足球视频，NBA视频，足球下载" />
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" /> 
+  <title>欢迎来到脚本体育</title> 
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/knakan.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+    <script src="../resource/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../resource/js/kankan.js" type="text/javascript"></script>
+    <script src="../resource/uikit/js/uikit.min.js" type="text/javascript"></script>
+	<script src="../resource/js/ssmain.js" type="text/javascript"></script>
+    
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto; font-family:'Times New Roman', Times, serif">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news"><span>最新动态</span></a></li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a href="../bbs">讨论专区</a></li>         
+        </ul>
+</div>
+
+
+<!--主要内容-->
+<div class="main">
+<div>
+<h3 style="margin-top:25px;font-size:28px; margin-left:160px;">[{{sga.game_leixin}}{%if sga.game_leixin_count%}{{sga.game_leixin_count}}{%else%}{%endif%}]{{sga.game_players}}</h3>
+
+<span id="ctl00_Content_labDown" class="download" style="float:right; margin-right:60px; font-size:23px;"><a href="javascript:exp2()" style="text-decoration:none; color:#000; padding:5px 5px"><i class="fa fa-file-video-o fa-1x"></i>Download>></a></span>
+<br />
+</div>
+
+<div class="l-vidoe">
+<a href="javascript:exp()" style=" font-size:14px;color:#000;text-decoration:none;">如IE限制运行脚本请点击允许</a>
+<a style="margin-left:180px;" href="{{stream.addr_mobi_1|safe}}" target="_blank"><i class="fa fa-tablet fa-2x"></i> <i class="fa fa-mobile fa-2x"></i></a>
+
+<div style="display:none" id="safeexp">
+<hr  align="left" width="733px" />
+说明：本网站所有脚本绝对安全无病毒！
+<br />
+如每次使用IE浏览器下方出现 "IE已限制此网页运行脚本或Active控件,点击此处允许" 字样，可进入IE工具—Internet选项—高级；将"允许活动内容在'我的电脑'中运行”项打勾。
+</div>
+
+<h4 id="h3-1"><a href="javascript:shrink1();">∧</a></h4>
+<hr align="center" width="720px" />
+
+<div id="l-vidoe-1" style="text-align:center">
+{{stream.addr_pc_1|safe}}
+</div>
+
+<hr align="center" width="720px" style= "border:1px dotted #076EA8" />
+<span style="font-size:16px">
+<a {% if stream.addr_pc_extr %} href="../stream_extr/?id={{sga.id}}&eid={{stream.id}}"{%else%}{%endif%} style="margin-left:10px"><button type="button" style="height:30px; width:500px; background-color:#F7F7F7;border:1px solid #999; margin-bottom:5px">Extra Game</button></a>&nbsp;<<如有加时赛及点球请猛击</h3>
+<span>
+
+</div>
+
+<!--右边部分-->
+<div class="r-vidoe"> 
+<div style="border:1px solid #CCC; margin:1px 1px;">
+<hr style="width:200px" />
+比赛时间(北京)：<b>{{sga.game_time|date:'m月d日H:i'}}</b>
+<br />
+封装格式：<b>{{stream.video.geshi}}</b>
+<br /> 
+视频编码：<b>{{stream.video.vidoe_geshi}}</b>
+<br /> 
+音频编码：<b>{{stream.video.sound_geshi}}</b>
+<br /> 
+大小：<b>{{stream.video.video_size}}</b>
+<br />  
+语言：<b>{{stream.video.language}}</b>
+<br />
+Posted By：<b>{%if stream.video%}{{sga.author}}{%else%}{%endif%}</b>
+<hr style="border:0" />
+</div>
+
+<div class="download2">
+<br />
+<a {%if stream.video.addr_baidu %} href="{{stream.video.addr_baidu}}" target="_blank" style="color:#000;font-size:20px;text-decoration:none;"{%else%} style="text-decoration:line-through;color:#000;font-size:20px;"{%endif%}><b>百度网盘REP</b></a>
+<hr width="200px;"/>
+<a {%if stream.video.addr_xunlei %} href="{{stream.video.addr_xunlei}}" target="_blank" style="color:#000; font-size:20px;text-decoration:none;"{%else%} style="text-decoration:line-through;color:#000;font-size:20px;"{%endif%}><b>迅雷网盘REP</b></a>
+<hr width="200px;"/>
+<br />
+<br />
+
+<a {%if stream.video.addr_ext_baidu %} href="{{stream.video.addr_ext_baidu}}" target="_blank" {%else%}{%endif%} style="color:#000; text-decoration:none">
+<button style=" height:30px; width:200px; background-color:#FFF; font-size:16px; border:1px solid #999; border-left:0; border-right:0; margin-bottom:1px;">如有加时及点球REP</button></a>
+</div>
+
+</div>
+
+<div class="bdsharebuttonbox" style="float:right;margin-top:10px; margin-right:70px;"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"{{sga.game_leixin}}[ScriptSports.com]{{sga.game_players}}视频","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","qzone","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script> 
+
+</div>
+
+{%include 'bottomexp.html'%}
+
+<a href="#my-gotop"  id="gotop" style="position:fixed; bottom:30px; right:30px;" class="uk-button"  data-uk-smooth-scroll><i class="fa fa-arrow-up fa-1x"></i></a>
+
+</body>
+</html>

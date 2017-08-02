@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="最新、最快、最全的体育新闻，赛事瞭望" />
+    <meta name="keywords" content="足球转会，篮球转会，球员观察，赛事视点" />
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" /> 
+    <title>欢迎来到ScriptSports</title> 
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../resource/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resource/uikit/js/uikit.min.js"></script>
+	 <script src="../resource/js/ssmain.js" type="text/javascript"></script>
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%;overflow:auto;">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news"><span>最新动态</span></a> 
+            </li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a  href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a href="../bbs">社区</a></li>
+          
+        </ul>
+</div>
+
+<!--主要内容-->
+<div class="main">
+
+<div class="newsdetone">
+<h2 style="margin-left:30px">[{{news.newsleixin}}]{{news.title}}</h2>
+
+<p class="article-info" style="font-size: 15px;line-height:24px;margin-left:15px;font-family:georgia,garamond,serif;">
+ <i class="fa fa-calendar-o fa-1x"></i>
+ <span>{{news.time|date:'Y-m-d'}}</span>
+
+ <i class="fa fa-user fa-1x" style="margin-left:15px"></i>
+ <span class="info">{{news.author}}</span>
+ 
+  <i class="fa fa-tags fa-1x" style="margin-left:15px"></i>&nbsp;{{news.orgin}}</p>
+
+<div class="text_news">{{news.text| safe}}</div>
+
+<div class="bdsharebuttonbox" style="float:right;margin-top:10px"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"[ScriptSports.com]{{news.title}}","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","qzone","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<div id="disqus_thread" style="margin-top:60px;margin-left:20px;"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'scriptsports'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>  
+</div>
+
+<div style="float:right; margin-top:40px; width:270px;">
+
+<div><form action="../news/" target="_blank">
+<input style="width:200px; height:30px;  font-size:18px;border-radius:3px;" class="sdt" name="search"></input>
+<button style="width:40px; border-radius:3px; height:30px;" class="sdt"><i class="fa fa-search fa-1x"></i></button>
+</form>
+</div>
+
+<div style="margin-top:50px; margin-left:5px">
+<h4>Tags</h4>
+<a href="/news/?search={{news.tag1}}" target="_blank" style="font-family:georgia,garamond,serif;font-size:15px;">{{news.tag1}}</a>
+<a href="/news/?search={{news.tag2}}" target="_blank" style="font-family:georgia,garamond,serif;font-size:15px">{{news.tag2}}</a>
+<a href="../news" target="_blank" style="font-family:georgia,garamond,serif;font-size:15px">scriptsports</a>                        
+</div>
+</div>
+</div>
+{%include 'bottomexp.html'%}
+
+
+ <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'scriptsports'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>   
+</body>
+</html>

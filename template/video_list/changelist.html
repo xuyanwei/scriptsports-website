@@ -1,0 +1,62 @@
+<ul class="ssitem">
+{% for x in video_list %}
+<li class="c_r">{{x.game_time|date:"n月j日"}}</li>
+<li class="c_p">{{x.game_leixin}}</li>
+<li class="c_m">{%ifequal x.important_id 5%}<b style="color:#F03">{{x.game_players}}</b>{%else%}{%ifequal x.important_id 4%}<b style="color:#369">{{x.game_players}}</b>{%else%}{{x.game_players}}{%endifequal%}{%endifequal%}</li>
+
+{%ifequal x.state.state 'OK' %}
+<li class="c_t"><a href="javascript:showvideo({{x.id}})">
+OK</a></li>
+{% else %}
+<li class="c_t">Waiting</li>
+{% endifequal %}
+
+{% if x.rejijin %}
+<li class="c_t1">
+{%for re in x.rejijin%}
+<a {%if re.outside%} href="{{re.addr_pc}}" {%else%}href="jijin/?idj={{re.id}}&idr={{x.id}}&ss=0"{%endif%} target="_blank" style="text-decoration:none;margin-left:10px">集锦</a>
+{%endfor%}
+</li>
+{% else %}
+<li class="c_t1">
+<span style="text-decoration:line-through;color:#000;margin-left:10px">集锦
+</span>
+</li>
+{%endif%}
+<li class="c_t2"><b>{{x.important|safe}}</b></li>
+
+<li id="{{x.id}}" style="display:none;font-size:15px;width:960px">
+
+<i class="fa fa-play fa-1x" style="margin-left:130px">PLAY</i>
+{%if x.restream %}
+{% for y in x.restream%}
+<a href="stream/?gid={{y.id}}&id={{x.id}}" target="_blank" style="margin-left:23px;">{{y.orginname.src|safe}}:&nbsp;{{y.language}}/{{y.quality}}<i class="fa fa-play fa-1x"></i></a>
+
+{%endfor%}
+{%else%}
+{%endif%}
+{%if x.rejijin%}
+{%for i in x.rejijin%}
+{%if i.addr_ss %}
+<a href="jijin/?id={{x.id}}&ss=1" target="_blank" style="margin-left:23px;"><img src="../resource/photo/ssweb.png" width="20px"></img>Ss集锦<i class="fa fa-play fa-1x"></i></a>
+{%endif%}
+{%endfor%}
+{%else%}
+{%endif%}
+<br />
+
+<i class="fa fa-video-camera fa-1x" style="margin-left:130px">REP</i>
+{%if x.revideo %}
+{% for z in x.revideo%}
+
+<a href="video/?zid={{z.id}}&xid={{x.id}}" target="_blank" style="margin-left:30px;">{%if z.videotvname%}{{z.videotvname}}{%endif%}{{z.language}}/{{z.quality}}({{z.video_size}})<i class="fa fa-download fa-1x"></i></a>
+
+{%endfor%}
+{%else%}
+{%endif%}
+<br />
+<i style="margin-left:780px;">posted by {{x.author}}</i>
+</li>
+
+{%endfor%}
+</ul>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="最新、最快、最全的体育赛事视频，赛事集锦">
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，NBA直播，足球视频，NBA视频，足球下载">
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" /> 
+<title>欢迎来到脚本体育</title> 
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" /> 
+  <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />    
+  <link href="../resource/css/live.css" rel="stylesheet" type="text/css" />    
+  <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <script src="../resource/js/jquery.min.js" type="text/javascript"></script>
+  <script src="../resource/uikit/js/uikit.min.js" type="text/javascript"></script>
+  <script src="../resource/js/ssmain.js" type="text/javascript"></script>
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto;">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+<ul>
+<li><a href=".."><span>首页</span></a></li>
+<li><a href="../news"><span>最新动态</span></a></li>
+<li><a href="../data">资料库</a></li>
+<li><a href="../video_list"><span>高清视频</span></a></li>
+<li><a style="background:#FF7; color:#000" href="../live"><span>赛事日历</span></a></li>
+<li><a href="../bbs">社区</a></li>         
+</ul>
+</div>
+
+
+<!--主要内容-->
+<div class="main">
+
+<div style="font-size:18px; border: 1px solid #E6E6E6;padding: 5px 3px;"><b>体育赛事时间</b></div>
+
+<div style="width:840px; float:left;">
+<form action="/ss/">
+<ul class="ss-video-tab" id="ss-news">
+<li><a href="?">今天</a></li>
+<li class="hover"><a href="?dateid=1">{{day1|date:'m/j'}} {{day1|date:'S'}}</a></li>
+
+<li><a href="?dateid=2">{{day2|date:'m/j'}} {{day2|date:'S'}}</a></li>
+<li><a href="?dateid=3">{{day3|date:'m/j'}} {{day3|date:'S'}}</a></li>
+<li><a href="?dateid=4">{{day4|date:'m/j'}} {{day4|date:'S'}}</a></li>
+<li><a href="?dateid=5">{{day5|date:'m/j'}} {{day5|date:'S'}}</a></li>
+<li><a href="?dateid=6">{{day6|date:'m/j'}} {{day6|date:'S'}}</a></li>
+<li><a href="?dateid=7">{{day7|date:'m/j'}} {{day7|date:'S'}}</a></li>
+<li class="hover2"><a href="?dateid=8">{{day8|date:'m/j'}} {{day8|date:'l'}}</a></li>
+</ul>
+</form>
+
+<ul class="ss-video-tab1">
+<li class="rep-ft"><a href="javascript:livech(1)">足 球</a></li>
+<li class="rep-ba"><a href="javascript:livech(2)">篮 球</a>
+</li>
+</ul>
+</div>
+
+<div class="ss_right_item">
+<hr />
+<h2><b><i class ="fa fa-play-circle"></i>Box</b></h2>
+<hr />
+<p>
+<a href="http://sports.cntv.cn/live/cctv5"target="_blank" >CCTV5</a>
+</p>
+<hr />
+<p>
+<a href="http://sports.cntv.cn/live/cctv5plus" target="_blank">CCTV5+</a></p>
+<hr />
+<p>
+<a href="http://tv.cntv.cn/live/cctvfyzq/" target="_blank">CCTV风云</a>
+</p>
+<hr />
+<p>
+<a href="http://www.fun.tv/live?cid=20" target="_blank">五星体育</a>
+</p>
+<hr />
+<p>
+<a href="http://v.gdtv.cn/option/com_content/ItemId/98/" target="_blank">欧洲足球</a>
+</p>
+<hr />
+<p>
+<a href="http://v.gdtv.cn/option/com_content/ItemId/96/" target="_blank">广东体育</a>
+</p>
+<hr />
+<p>
+<a href="http://video.sina.com.cn/l/pl/sportstv/" target="_blank">新浪体育</a>
+</p>
+<hr />
+<p>
+<a href="http://live.letv.com/lunbo/play/index.shtml?channel=lb_sports" target="_blank">乐视体育</a>
+</p>
+</div>
+
+<div class="ssbody">
+<h3><b>{{day|date:'n月j日l'}}</b></h3>
+<hr />
+<table style="font-size:20px; width:820px;" cellpadding="10px">
+{% for x in llist %}
+<tr>
+  <td>{{x.game_time|date:"H:i"}}</td> 
+    <td >{{x.game_leixin}}</td>
+    <td >{%if x.game_important%}<span style="color:#900">{{x.game_vs}}</span>{%else%}{{x.game_vs}}{%endif%}</td>
+    <td style="text-align:right">
+    {%for p in x.gettvname %}
+    
+    <a href="#{{p.name}}" data-uk-modal="{target:'#{{p.name}}',bgclose:false}">{{p.name}}&nbsp;</a>
+    {%include 'smallwin.html'%}
+    {%endfor%}     
+</td>    
+</tr>
+{%endfor%}
+</table>
+
+<!--预留竞猜位-->
+
+<div style="margin-top:20px">
+<p align="center" style="color:#900">已经完全显示</p>
+<p style="font-size:14px; text-align:center">注意：以上时间均为北京时间（UTC+8），具体赛事以当天播出时间为准.</p>
+</div>
+</div>
+
+</div>
+
+{%include 'bottomexp.html'%}
+
+<a href="#my-gotop"  id="gotop" style="position:fixed; bottom:30px; right:30px;" class="uk-button"  data-uk-smooth-scroll><i class="fa fa-arrow-up fa-1x"></i></a>
+</body>
+</html>

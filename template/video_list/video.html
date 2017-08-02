@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="description" content="最新、最快、最全的体育赛事直播，赛事视频，赛事集锦" />
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，网球直播，NBA直播，足球视频，NBA视频，足球下载" />
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" /> 
+   <title>欢迎来到脚本体育ScriptSports</title>      
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />   
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />    
+    <script src="../resource/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../resource/uikit/js/uikit.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../resource/js/ssmain.js"></script>
+
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto;">
+
+<!--顶条-->
+<div class="title1">
+<p style="margin:0 130px; height:20px; width:100px;">ScriptSports</p>
+</div>
+
+{%include 'advshort.html'%}
+
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news"><span>最新动态</span></a>            </li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a href="../bbs">讨论专区</a></li>
+          
+        </ul>
+</div>
+
+<!--主要内容-->
+<div class="main">
+<div style="margin-left:50px">
+<!--<img src="../resource/photo/video_photo/201411117421.JPG" width="900px"></img>-->
+</div>
+<div style="height: 240px; background-color: #AED2F7; border: 1px solid #CCC; margin:5px 50px;">
+<!--background-color: #1fa67a-->
+<div style="float:left; margin-top:30px; margin-left:100px; margin-bottom:10px;font-size:18px">
+
+比赛时间(北京)：<b>{{tts.game_time|date:'m月d日H:i'}}</b>
+<br />
+封装格式：<b>{{video.geshi}}</b>
+<br /> 
+视频编码：<b>{{video.vidoe_geshi}}</b>
+<br /> 
+音频编码：<b>{{video.sound_geshi}}</b>
+<br /> 
+大小：<b>{{video.video_size}}</b>
+<br />  
+语言：<b>{{video.language}}</b>
+<br />
+清晰度：<b>{{video.quality}}</b>
+<br />
+TV：<b>{%if video.videotvname%}{{video.videotvname}}{%else%}{%endif%}</b>
+<br />
+<br />
+<em>Posted By：{{tts.author}}</em>
+<hr style="border:0" />
+</div>
+
+<div style="border:1px solid #CCC;float:right;padding:0 80px 15px; margin-right:180px;margin-top:20px;">
+<br />
+<a href="{{video.addr_baidu}}" target="_blank" style="color:#000; font-size:20px; text-decoration:none;"><b>百度网盘REP</b></a>
+<hr align="center"/>
+{%if video.addr_xunlei %}
+<a href="{{video.addr_xunlei}}" target="_blank" style="color:#000;font-size:20px;text-decoration:none;"><b>迅雷网盘REP</b></a>
+{%else%}
+<b style="color:#000;font-size:20px; text-decoration:line-through;">迅雷网盘REP</b>
+{%endif%}
+<hr align="center"/>
+<br />
+
+<a {%if video.addr_ext_baidu %} href="{{video.addr_ext_baidu}}" target="_blank" {%else%}{%endif%} style="color:#000; text-decoration:none"><button style="height:30px;width:180px; background-color:#FFFfff; font-size:15px; border:1px solid #999 border-left:0;border-right:0; margin-bottom:1px; margin-left:-30px">如有加时及点球REP</button></a>
+</div>
+</div>
+</div>
+{%include 'bottomexp.html'%}
+</body>
+</html>

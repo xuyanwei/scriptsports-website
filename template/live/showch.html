@@ -1,0 +1,17 @@
+<table width="470" style="font-size:13px;margin-top:5px">
+<!--注意：不超过10条电视预告-->
+{% for x in tvshow %}
+<tr>
+  <td>{{x.game_time|date:"m/j/H:i"}}</td>
+    <td >{%if x.game_important%}<span style="color:#900">{{x.game_vs}}</span>
+    {%else%}{{x.game_vs}}{%endif%}</td>
+    <td style="color:#096">{{x.game_leixin}}</td>
+    <td style="text-align:right;">
+    {%for p in x.gettvname %}
+    <a href="#{{p.name}}" data-uk-modal="{target:'#{{p.name}}',bgclose:false}">{{p.name}}</a>
+    {%include 'smallwin.html'%}
+    {%endfor%}     
+</td>    
+</tr>
+{%endfor%}
+</table>

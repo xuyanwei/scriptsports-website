@@ -1,0 +1,90 @@
+.ss-lt-box{
+	border: 1px solid #ccc;
+	box-shadow: 0 0 1px rgba(180,180,180,0.5);
+	width: 1003px;
+	margin: auto;
+	height: 365px;
+	float: left;
+	margin-top: 2px;
+	margin-left:2px;
+}
+
+.ss-lt-title-one{ border-bottom:1px solid #ccc; height:25px;}
+
+
+.ss-lt-title{
+	border-bottom: 1px solid #ccc;
+	height: 30px;
+	margin: 1px 0;
+	background-color: #F7F7F7
+}
+
+.ss-lt-title h2{ padding:3px 1px;color:#3C3C3C; font-size:20px; margin:1px 10px;}
+
+.ss-lt-title .more{ float:right; font-size:14px; font-weight:normal; color:#888; padding:0 0;}
+
+.ss-lt-title .more a{ text-decoration:none; color:#000;}
+.ss-lt-title .more a:hover{ text-decoration:underline;}
+
+
+.ss-bbs-list{
+	padding: 2px 2px;
+	height: 358px;
+	width: 1000px;
+
+}
+.ss-bbs-left li{overflow:hidden;padding:4px 5px 0 10px; background:url(../photo/bg-point.png) no-repeat 1px 15px; margin-left:-15px;font-size:17px;width:550px;height:27px;line-height:17px;}
+
+.ss-bbs-left li a{
+	 text-decoration:none; color:#000;     word-break:keep-all;/* 不换行 */
+     white-space:nowrap;/* 不换行 */
+     overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+     text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/}
+
+.ss-bbs-right li a{
+	 text-decoration:none; 
+	 color:#000;
+     word-break:keep-all;/* 不换行 */
+     white-space:nowrap;/* 不换行 */
+     overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+     text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/}
+.ss-bbs-list h3{ height:30px; line-height:20px; border-bottom:1px solid #E2E2E2; margin-top:auto;}
+
+.ss-bbs-left h3{
+	border: 1px solid #fff;
+	color: #333333;
+	font-size: 16px;
+	margin: 8px 10px;
+	border-bottom: 1px solid #E2E2E2;	
+}
+
+.ss-bbs-left{ width:570px;height:370px;float:left;margin-top:1px}
+
+.ss-bbs-right{ width:430px;float:right;margin-top:1px;height:370px;margin-right:1px;}
+.ss-bbs-right h3{
+	border: 1px solid #fff;
+	color: #333333;
+	font-size: 16px;
+	margin: 8px 15px;
+	border-bottom: 1px solid #E2E2E2;
+}
+.ss-bbs-right li{ overflow:hidden;padding:4px 5px 0 10px;background:url(../photo/bg-point.png) no-repeat 1px 15px;margin-left:-10px;font-size:14px;height:27px;line-height:16px;}
+
+.ss-bbs-left li a:visited {color: #800080
+}
+.ss-bbs-right li a:visited {color: #800080
+}
+.ss-bbs-left li a:hover {
+	text-decoration:underline;
+	color:#C00;
+}
+.ss-bbs-right li a:hover {
+	text-decoration:underline;
+	color:#C00;
+}
+.bbsshare1:hover{ color:#F03}
+.bbstalk1:hover{ color:#F03}
+
+.minbbs2 a:hover{color:#C00}
+
+

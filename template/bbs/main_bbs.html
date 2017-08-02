@@ -1,0 +1,124 @@
+{% load pagination_tags %}
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="ScriptSports社区，分享、讨论">
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" />
+    <title>欢迎来到ScriptSports</title>     
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/bbs.css" rel="stylesheet" type="text/css">
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css">
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />   
+    <script type="text/javascript" src="../resource/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resource/uikit/js/uikit.min.js"></script>
+	<script src="../resource/js/ssmain.js" type="text/javascript"></script>
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto;">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news" ><span>最新动态</span></a>
+            </li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a  href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a  href="../bbs" style="background:#FF7; color:#000">社区</a></li>
+          
+        </ul>
+</div>
+
+<!--主要内容-->
+<div class="main">
+
+<div style="height:25px;margin-top:30px;">
+<span style="font-size:22px;">
+<a href="javascript:bbslist('share')" style="margin-left:100px; color:#F03" class="bbsshare1">分享条目</a>
+<a href="javascript:bbslist('talk')" style="margin-left:50px;" class="bbstalk1">讨论条目</a></span>
+
+<a target="_blank" href="#bbssharing" data-uk-modal="{target:'#bbssharing'}"><button style="margin-left:460px;border-radius:5px; width:60px" class="sdt">分 享</button></a>
+
+<a target="_blank" href="#bbstalking" data-uk-modal="{target:'#bbstalking'}">
+<button style="margin-left:15px;border-radius:5px; width:60px" class="sdt">讨论</button></a>
+
+<!--分享-->
+<div id="bbssharing" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+<div style="height:210px;width:450px;">
+<strong>ScriptSports资源分享</strong>
+<hr style="width:0" />
+<span style=" margin-left:120px">分享内容请尽量跟体育娱乐有关</span>
+<form method="post" autocomplete="off"  action="../sharing/" style="margin-top:5px; margin-left:0px" onsubmit="return checksharing('{{user.username}}')" id="bbs_sharing" name="bbs_sharing">
+
+<label style="margin-left:50px;"><b>分享标题:</b>
+<input type="text" style="margin-left:5px; width:280px; height:22px;" id="bbs_sharing1" name="bbs_sharing1" /></label>
+<hr style="width:0" />
+<label style="margin-left:50px;"><b>站外地址:</b>
+<input type="text" style="margin-left:5px;width:280px;height:22px;" placeholder="http://..." id="bbs_sharing2" name="bbs_sharing2" />
+</label>
+<hr style="width:430px" />
+<input type="submit" value="分 享" style="width:70px;height:25px;line-height:17px;color:#000;cursor:pointer;margin-left:180px" />
+</form>
+</div>
+    </div>
+</div>
+
+
+<!--讨论-->
+<div id="bbstalking" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+<div style="height:260px;width:470px;">
+<strong>发起讨论</strong>
+<hr style="width:0" />
+<form method="post" autocomplete="off" name="bbs_ttalk" id="bbs_ttalk" onsubmit="return checktalk('{{user.username}}')" action="../ttalk/" style="margin-top:5px;" >
+
+<label style="margin-left:15px;"><b>讨论话题:</b>
+<input type="text" style="margin-left:5px;width:300px;height:22px;" id="bbs_ttalk1" name="bbs_ttalk1" /></label>
+<hr style="width:0" />
+<label style="margin-left:15px;"><b>讨论内容:</b>
+<textarea placeholder="不少于5个字..." style="width:300px; height:100px; margin-left:5px" id="bbs_ttalk2" name="bbs_ttalk2">
+</textarea> 
+</label>
+<hr />
+<input type="submit" value="提 交" style="width:70px;height:25px;line-height:17px;color:#000;cursor:pointer;margin-left:170px" />
+</form>
+</div>
+    </div>
+</div>
+
+</div>
+<hr />
+
+<div>
+
+<table style="width:860px;min-height:60px;margin-left:75px;font-size:19px;margin-bottom:15px;" class="minbbs2">
+{%include 'bbs/slist.html'%}
+</table>
+</div>
+
+</div>
+
+{%include 'bottomexp.html'%}
+
+<a href="#my-gotop"  id="gotop" style="position:fixed; bottom:30px; right:30px;" class="uk-button"  data-uk-smooth-scroll><i class="fa fa-arrow-up fa-1x"></i></a>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="最新、最快、最全的体育新闻，赛事瞭望">
+    <meta name="keywords" content="足球转会，篮球转会，球员观察，赛事视点">
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" />
+    <title>欢迎来到ScriptSports</title>     
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css">
+     <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />   
+    <script type="text/javascript" src="../resource/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resource/js/ssmain.js"></script>
+    <script type="text/javascript" src="../resource/uikit/js/uikit.min.js"></script>
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto;">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href="..">首页</a>
+            </li>
+            <li>
+                <a href="../news">最新动态</a>
+            </li>
+            <li>
+                <a href="" style="background:#FF7; color:#000">资料库</a>
+            </li>
+            <li>
+                <a  href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a href="../bbs">社区</a></li>         </ul>
+</div>
+
+<!--主要内容-->
+<div class="main">
+
+<div style="height:50px;width:650px;float:left; margin-top:10px">
+<a style="margin-left:50px;">足球</a>
+<a style="margin-left:20px">篮球</a>
+<input style="width:400px; height:30px; margin:20px 20px; font-size:18px;border-radius:5px;" class="sdt" id='search';></input>
+<button style="width:80px; margin:0 -15px; border-radius:5px; height:30px;" class="sdt" onClick="seach()">Go</button>
+</div>
+
+<div class="data-exp1">
+{%include 'data/datachange.html'%}</div>
+
+<div class="hideserch">
+{%include 'data/searchdata.html'%}</div>
+
+<div class="data-ftl">
+
+<div style="margin-top:15px">
+<a><img src="../resource/photo/badge/200px-FC_Barcelona.png" height="80px" width="80px" title="Barcelona" onClick="showdata_det('Barcelona')" /></a>
+
+<a><img src="../resource/photo/badge/175px-Real_Madrid_CF.png" height="80px" width="80px" title="Real_Madrid" onClick="showdata_det('Real Madrid')" /></a>
+
+<a><img src="../resource/photo/badge/175px-Atletico_Madrid_logo.png" height="80px" width="80px" title="Atletico_Madrid" onClick="showdata_det('Atletico Madrid')" /></a>
+
+<a><img src="../resource/photo/badge/140px-Sevilla_fc.png" height="80px" width="80px" title="Sevilla" onClick="showdata_det('Sevilla')" /></a>
+
+<a><img src="../resource/photo/badge/150px-FC_Valencia.png" height="80px" width="80px" title="Valencia" onClick="showdata_det('Valencia')" /></a>
+
+<a><img src="../resource/photo/badge/150px-AFC_Ajax.png" height="80px" width="80px" title="AFC_Ajax" onClick="showdata_det('Ajax')" /></a>
+
+<a><img src="../resource/photo/badge/180px-PSV_Eindhoven.png" height="80px" width="80px" title="PSV_Eindhoven" onClick="showdata_det('PSV_Eindhoven')" /></a>
+</div>
+
+<div style="margin-top:10px">
+<a><img src="../resource/photo/badge/180px-Manchester_United_FC_crest.png" height="80px" width="80px" title="Manchester_United" onClick="showdata_det('Manchester United')" /></a>
+
+<a><img src="../resource/photo/badge/150px-Chelsea_FC.png" height="80px" width="80px" title="Chelsea" onClick="showdata_det('Chelsea')" /></a>
+
+<a><img src="../resource/photo/badge/150px-ManCity.png" height="80px" width="80px" title="ManCity" onClick="showdata_det('ManCity')" /></a>
+
+<a><img src="../resource/photo/badge/150px-Liverpool_FC.png" height="80px" width="80px" title="Liverpool" onClick="showdata_det('Liverpool')" /></a>
+
+<a><img src="../resource/photo/badge/180px-Arsenal_FC.png" height="80px" width="80px" title="Arsenal" onClick="showdata_det('Arsenal')" /></a>
+
+<a><img src="../resource/photo/badge/150px-Tottenham_Hotspur.png" height="80px" width="80px" title="Tottenham_Hotspur" onClick="showdata_det('Tottenham_Hotspur')" /></a>
+
+<a><img src="../resource/photo/badge/140px-Sl_benfica.png" height="80px" width="80px" title="benfica" onClick="showdata_det('benfica')" /></a>
+</div>
+
+<div style="margin-top:10px;">
+<a><img src="../resource/photo/badge/140px-Juventus-FC.png" height="80px" width="80px" title="Juventus" onClick="showdata_det('Juventus')" /></a>
+
+<a><img src="../resource/photo/badge/Internazionale.png" height="80px" width="80px" title="Inter_Milan" onClick="showdata_det('Inter')" /></a>
+
+<a><img src="../resource/photo/badge/125px-AC_Milan.png" height="80px" width="80px" title="AC_Milan" onClick="showdata_det('AC Milan')" /></a>
+
+<a><img src="../resource/photo/badge/150px-AS_Rom.png" height="80px" width="80px" title="AS_Rom" onClick="showdata_det('AS Rom')" /></a>
+
+<a><img src="../resource/photo/badge/140px-S.S.C._Napoli_logo.png" height="80px" width="80px" title="Napoli" onClick="showdata_det('Napoli')" /></a>
+
+<a><img src="../resource/photo/badge/150px-Pfk_cksa_moskva.png" height="80px" width="80px" title="cksa_moskva" onClick="showdata_det('CSKA_Moscow')" /></a>
+
+<a><img src="../resource/photo/badge/250px-Zenit_arrow.png" height="80px" width="80px" title="zenit" onClick="showdata_det('zenit')" /></a>
+</div>
+
+<div style="margin-top:10px;">
+<a><img src="../resource/photo/badge/FC_Bayern_Munchen.png" height="80px" width="80px" title="Bayern_Munchen" onClick="showdata_det('Bayern Munchen')" /></a>
+
+<a><img src="../resource/photo/badge/220px-Borussia_Dortmund_logo.png" height="80px" width="80px" title="Dortmund" onClick="showdata_det('Dortmund')" /></a>
+
+<a><img src="../resource/photo/badge/150px-Bayer_04_Leverkusen_Logo.png" height="80px" width="80px" title="Leverkusen" onClick="showdata_det('Leverkusen')" /></a>
+
+<a><img src="../resource/photo/badge/Logo3_PSG.png" height="80px" width="80px" title="Saint_PSG" onClick="showdata_det('Saint PSG')" /></a>
+
+<a><img src="../resource/photo/badge/AS_Monaco.png" height="80px" width="80px" title="AS_Monaco" onClick="showdata_det('AS Monaco')" /></a>
+
+<a><img src="../resource/photo/badge/150px-Olympique_Marseille_logo.png" height="80px" width="80px" title="Olympique_Marseille" onClick="showdata_det('Marseille')" /></a>
+
+<a><img src="../resource/photo/badge/GuangzhouEvergrandeTaobao_FC.png" height="80px" width="80px" title="GuangzhouEvergrandeTaobao" onClick="showdata_det('GuangzhouEvergrandeTaobao')" /></a>
+</div>
+
+</div>
+
+<div class="data-exp2" style="border:1px solid #CCC;float:left;margin-left:20px;height:100px;width:645px;margin-top:10px">
+<h1 style="text-align:center;">
+<img src="../resource/photo/badge/ba/125px-NBA-LOGO.png" width="45px" />NBA(美职篮)</h1>
+</div>
+
+<div class="data-exp2" style="border:1px solid #CCC;float:left;margin-left:20px;min-height:330px;width:445px;margin-top:10px">
+<h2 style="text-align:center;">
+洛杉矶湖人队</h2>
+<div style="margin-left:20px; margin-right:10px">
+<p>部区：<b>西部联盟</b><span style="margin-left:60px">主场：</span><b>斯台普斯中心球馆</b></p>
+<p>教练：<b>拜伦·斯科特</b><span style="margin-left:60px">总冠军次数：</span><b>16次</b></p>
+<p>官方网站：<b>http://china.nba.com/lakers/</b></p>
+
+<p>现役球员：</p>
+0号 尼克-杨; 2号 维恩-艾灵顿; 4号 莱恩-凯利; 5号 卡洛斯-布泽尔; 6号 乔丹-克拉克森; 7号 泽维尔-亨利; 9号 罗尼-普莱斯; <b>10号 史蒂夫-纳什</b>; 11号 韦斯利·约翰逊; <b>17号 林书豪</b>; 21号 艾德·戴维斯; <b>24号 科比·布莱恩特(C)</b>; 27号 乔丹·希尔; 30号 朱利叶斯·兰德尔; 50号 罗伯特·萨克雷;
+</div>
+</div>
+
+<div class="data-bal">
+<div>
+<a><img src="../resource/photo/badge/ba/200px-Lakerslogo.png" height="60px" width="60px" title="Lakers" onClick="showdata_detb('Lakers')" /></a>
+<a><img src="../resource/photo/badge/ba/200px-MiamiHeat.png" height="60px" width="60px" title="MiamiHeat" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Detroit_Pistons_logo.png" height="60px" width="60px" title="Detroit_Pistons" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Atlanta_Hawks_new_logo.png" height="60px" width="60px" title="Atlanta_Hawks" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Orlando_Magic_logo.png" height="60px" width="60px" title="Orlando_Magic" /></a>
+<a><img src="../resource/photo/badge/ba/200px-WashingtonWizards.png" height="60px" width="60px" title="WashingtonWizards" /></a>
+<a><img src="../resource/photo/badge/ba/Charlotte-Hornets_new_logo.png" height="60px" width="60px" title="Charlotte-Hornets" /></a>
+<a><img src="../resource/photo/badge/ba/200px-HoustonRockets.png" height="60px" width="60px" title="HoustonRockets" /></a>
+</div>
+
+<div style="margin-top:5px">
+<a><img src="../resource/photo/badge/ba/200px-ClevelandCavaliersMainLogo.png" height="60px" width="60px" title="ClevelandCavaliers" /></a>
+<a><img src="../resource/photo/badge/ba/200px-OKC_Thunder.png" height="60px" width="60px" title="OKC_Thunder" /></a>
+<a><img src="../resource/photo/badge/ba/200pxogo.png" height="60px" width="60px" title="New_Orleans" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Denver_Nuggets_newest_logo.png" height="60px" width="60px" title="Denver_Nuggets" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Utah_Jazz_logo,_(2010_'new_look').svg.png" height="60px" width="60px" title="Utah_Jazz" /></a>
+<a><img src="../resource/photo/badge/ba/200px-PortlandTrailBlazers.png" height="60px" width="60px" title="PortlandTrailBlazers" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Minnesota_Timberwolves_2008_new_logo.png" height="60px" width="60px" title="Minnesota_Timberwolves" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Sacramento_Kings.png" height="60px" width="60px" title="Sacramento_Kings" /></a>
+</div>
+
+<div style="margin-top:5px;">
+<a><img src="../resource/photo/badge/ba/200px-DallasMavericks.png" height="60px" width="60px" title="DallasMavericks" /></a>
+<a><img src="../resource/photo/badge/ba/200px-SanAntonioSpursLogo200.png" height="60px" width="60px" title="SanAntonioSpurs" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Boston_Celtics_logo.png" height="60px" width="60px" title="Boston_Celtics" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Brooklyn_Nets_Logo.png" height="60px" width="60px" title="Brooklyn_Nets" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Knicks_logo.png" height="60px" width="60px" title="Knicks" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Toronto_Raptors_2008_new_logo.png" height="60px" width="60px" title="Toronto_Raptors" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Philadelphia76ers.png" height="60px" width="60px" title="Philadelphia76ers" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Indiana_Pacers_logo.png" height="60px" width="60px" title="Indiana_Pacers" /></a>
+</div>
+
+<div style="margin-top:5px;">
+<a><img src="../resource/photo/badge/ba/fsun.jpg" height="60px" width="60px" title="sun" /></a>
+<a><img src="../resource/photo/badge/ba/200px-ChicagoBulls_100.png" height="60px" width="60px" title="ChicagoBulls" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Golden_State_Warriors_logo.png" height="60px" width="60px" title="Golden_State_Warriors" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Milwaukee_Bucks_Logo.png" height="60px" width="60px" title="Milwaukee_Bucks" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Los_Angeles_Clippers_logo.png" height="60px" width="60px" title="Los_Angeles_Clippers" /></a>
+<a><img src="../resource/photo/badge/ba/200px-Memphis_Grizzlies_logo.png" height="60px" width="60px" title="Memphis_Grizzlies" /></a>
+<a><img src="../resource/photo/badge/ba/150px-Beijingya.jpeg" height="60px" width="60px" title="beijing" /></a>
+<a><img src="../resource/photo/badge/ba/150px-Guangdonghuananhu.jpeg" height="60px" width="60px" title="Guangdonghuananhu" /></a>
+</div>
+
+
+</div>
+</div>
+{%include 'bottomexp.html'%}
+
+<a href="#my-gotop"  id="gotop" style="position:fixed; bottom:30px; right:30px;" class="uk-button"  data-uk-smooth-scroll><i class="fa fa-arrow-up fa-1x"></i></a>
+</body>
+</html>

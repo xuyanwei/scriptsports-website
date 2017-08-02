@@ -1,0 +1,8 @@
+<ul>
+{%for p in newslist%}
+<li><span>[{{p.newsleixin}}]</span><a href="../news_deta/?nd={{p.id}}" target="_blank" style="{%if p.important%} color:#F03{%else%}{%endif%}">{{p.title}}</a><span class="time_create">{{p.time|date:'Y-m-d'}}</span></li> 
+<hr />
+{%endfor%}
+</ul>
+
+

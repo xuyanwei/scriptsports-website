@@ -1,0 +1,45 @@
+.l-vidoe {
+	float:left;
+	width:740px;
+	min-height:500px;
+	overflow:hidden;
+	border: 1px solid #CCC;
+    margin-top: 10px;
+	box-shadow: 0 0 1px;
+	margin-left:5px;
+	margin-bottom:5px;	
+	}
+.l-vidoe h4{
+	margin:auto;
+    text-align:right;
+	margin-top:-20px;
+	}
+.l-vidoe h4 a{
+	text-decoration:none;
+	color:#000;
+	}
+.l-vidoe hr{
+	 border:1px dotted #666666;
+	}
+
+.r-vidoe {
+	float:right;
+	width:247px;
+	min-height:290px;
+	overflow:hidden;
+	display:none;
+    margin-top: 3px;
+	margin-right:5px;
+	
+}
+.r-vidoe hr{
+	 border:1px dotted #666666;
+	}
+.download a b:hover{
+	text-decoration:underline;
+	}
+.download2 {
+	 border:1px solid #CCC;
+	 margin:10px 1px; 
+	 text-align:center;
+	 }

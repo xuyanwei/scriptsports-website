@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="最新、最快、最全的体育赛事视频，赛事集锦">
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，NBA直播，足球视频，NBA视频，足球下载" />
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" /> 
+<title>欢迎来到脚本体育</title> 
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/knakan.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+    <script src="../resource/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../resource/js/kankan.js" type="text/javascript"></script>
+    <script src="../resource/uikit/js/uikit.min.js" type="text/javascript"></script>
+    <script src="../resource/js/ssmain.js" type="text/javascript"></script>
+
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto; font-family:'Times New Roman', Times, serif">
+{%include 'Topbar.html'%}
+
+{%include 'advshort.html'%}
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news"><span>最新动态</span></a>            </li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a href="../bbs">讨论专区</a></li>
+          
+        </ul>
+</div>
+
+
+<!--主要内容-->
+<div class="main">
+<div>
+<h3 style="margin-top:25px;font-size:28px; margin-left:130px;">[{{extvideo.game_leixin}}{{extvideo.game_leixin_count}}]{{extvideo.game_players}}加时赛</h3>
+
+<span id="ctl00_Content_labDown" class="download" style="float:right; margin-right:35px; font-size:23px;"><a href="javascript:exp2()" style="text-decoration:none; color:#000; padding:5px 5px"><i class="fa fa-file-video-o fa-1x"></i>Extra_Download>></a></span>
+<br />
+</div>
+
+
+<div class="l-vidoe">
+<a href="javascript:exp()" style=" font-size:15px; color:#000;text-decoration:none;">如IE限制运行脚本请点击允许</a>
+<div style="display:none" id="safeexp">
+<hr  align="left" width="733px" />
+说明：本网站所有脚本绝对安全无病毒！
+<br />
+如每次使用IE浏览器下方出现 "IE已限制此网页运行脚本或Active控件,点击此处允许" 字样，可进入IE工具—Internet选项—高级；将"允许活动内容在'我的电脑'中运行”项打勾。
+</div>
+
+<h4 id="h3-1">加时赛：<a href="javascript:shrink1();">∧</a></h4>
+<hr align="center" width="720px" />
+
+<div id="l-vidoe-1" style="text-align:center">
+
+{{extstream.addr_pc_extr|safe}}
+
+</div>
+
+<hr />
+
+<br />
+
+</div>
+
+<!--右边部分-->
+<div class="r-vidoe"> 
+<div style="border:1px solid #CCC; margin:1px 1px;">
+<hr style="width:200px" />
+比赛时间(北京)：<b>{{extvideo.game_time|date:'m月d日H:i'}}</b>
+<br />
+封装格式：<b>{{extstream.video.geshi}}</b>
+<br /> 
+视频编码：<b>{{extstream.video.vidoe_geshi}}</b>
+<br /> 
+音频编码：<b>{{extstream.video.sound_geshi}}</b>
+<br /> 
+ 
+语言：<b>{{extstream.video.language}}</b>
+<br />
+Posted By：<b>{{extvideo.author}}</b>
+<hr style="border:0" />
+</div>
+
+<div class="download2">
+<br />
+<a {%if extstream.video%} href="{{extstream.video.addr_ext_baidu}}" style="color:#000;font-size:20px; text-decoration:none;"{%else%} style="color:#000;font-size:20px;text-decoration:line-through;"><b>百度网盘REP</b></a>
+<hr width="200px;"/>
+<a {%if extstream.video%} href="{{extstream.video.addr_ext_xunlei}}" style="color:#000;font-size:20px; text-decoration:none;"{%else%} style="color:#000;font-size:20px;text-decoration:line-through;"><b>迅雷网盘REP</b></a>
+<hr width="200px;"/>
+</div>
+</div>
+
+</div>
+{%include 'bottomexp.html'%}
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="最新、最快、最全的体育赛事视频，赛事集锦">
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，NBA直播，足球视频，NBA视频，足球下载">
+<title>欢迎来到脚本体育</title>
+
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/knakan.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="../resource/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../resource/js/kankan.js" type="text/javascript"></script>
+    <script src="../resource/js/ssmain.js" type="text/javascript"></script>
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto; font-family:'Times New Roman', Times, serif" >
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href="ssmain.html" target="_blank"><span>首页</span></a>
+            </li>
+            <li>
+                <a href="news/news.html" target="_blank"><span>最新动态</span></a>            </li>
+            <li>
+                <a>资料库</a>
+            </li>
+            <li>
+                <a href="vidoe_list/video_list.html" target="_blank">高清视频</a>
+            </li>
+            <li>
+            <a href="live/live.html" target="_blank">赛事日历</a></li>
+            <li>
+            <a>讨论专区</a></li>
+          
+        </ul>
+</div>
+
+
+<!--主要内容-->
+<div class="main">
+
+<div>
+<h4 style="text-align:center; margin-top:25px;"><span><i class="fa fa-play fa-2x">CCTV5+</i></span></h4>
+<hr />
+</div>
+
+<div>
+<a href="javascript:exp()" style=" font-size:15px; color:#000;text-decoration:none; margin-left:20px;">IE说明</a>
+
+<a id="lgi" href="javascript:light()" style="font-size:15px; color:#000;text-decoration:none; margin-left:880px;">关灯</a>
+
+<div style="display:none" id="safeexp">
+<hr />
+说明：本网站所有脚本绝对安全无病毒！
+<br />
+如果每次使用IE浏览器下方出现 "IE已限制此网页运行脚本或Active控件,点击此处允许" 字样，可进入IE工具—Internet选项—高级；将"允许活动内容在'我的电脑'中运行”项打勾。推荐使用Chrome32.0+、Firefox28.0+浏览器。
+</div>
+</div>
+
+<div class="kaiguan" style="text-align:center;min-height:550;">
+
+
+<object id="LivePlayer" name="LivePlayer" type="application/x-shockwave-flash" data="http://s.wasu.cn/portal/player/20140806/WsPlayer.swf?r=22" width=750px height=550px><param name="movie" value="http://s.wasu.cn/portal/player/20140806/WsPlayer.swf?r=22">			<param name="quality" value="high">			<param name="bgcolor" value="#000000">			<param name="devicefont" value="false">			<param name="wmode" value="opaque">			<param name="allowScriptAccess" value="always">			<param name="allowFullscreen" value="true">			<param name="flashVars" value="auto=1&amp;vid=44499&amp;video=http://livertmp2-cnc.wasu.cn/shanghaisports.flv&amp;mode=4&amp;wide=false&amp;plugin=http%3A%2F%2Fs.wasu.cn%2Fportal%2Fplayer%2F20140715%2Floader.swf&amp;scale=1.77&amp;p2p=true&amp;ad=4222&amp;dynamiclink=http%3A%2F%2Facsystem.wasu.cn%2Fafp%2Fdoor%2F%3Bap%3D149215%3Bct%3Dxml%3Bpu%3Dbedcd2f213d7d05f0001%3B%2F%3F">	</object>
+
+</div>
+ 
+</div>
+{%include 'bottomexp.html'%}
+</body>
+</html>

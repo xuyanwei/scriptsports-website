@@ -1,0 +1,4 @@
+{%for m in Sharebbs%}
+<tr style="border:1px solid #ccc; height:40px"><td style="width:620px">&nbsp;[讨论]&nbsp;<a href="../bbs_talk/?talk={{m.id}}" target="_blank" title="{{m.title}}" class="minshare1" {%if m.ttop%}style="color:#F03"{%else%}{%endif%}>{{m.title|slice:"24"}}</a>
+</td><td style="width:130px"><a href="javascript:bbstalkchs('{{m.tname}}')" style="color:#093;font-size:16px">{{m.tname|slice:"6"}}</a></td><td style="font-size:14px;">{{m.ttime|date:'y/m/d H:i'}}</td></tr>
+{%endfor%}

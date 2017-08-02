@@ -1,0 +1,163 @@
+{% load pagination_tags %}
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="最新、最快、最全的体育赛事直播，赛事视频，赛事集锦" />
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，NBA直播，足球视频，NBA视频，足球下载" />
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" />
+<title>欢迎来到脚本体育</title>   
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/vidoe_list.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />   
+    <script src="../resource/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../resource/uikit/js/uikit.min.js" type="text/javascript"></script>
+    <script src="../resource/js/ssmain.js" type="text/javascript"></script>
+
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto;">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news"><span>最新动态</span></a>            </li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a href="" style="background:#FF7; color:#000">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a href="../bbs">社区</a></li>
+          
+        </ul>
+</div>
+
+<!--主要内容-->
+<div class="main">
+
+<div style="margin:auto; width:1006px;border:1px solid #ccc;">
+
+<div style="width:1006px; min-height:400px;margin-top:2px; float:left;">
+
+<div style=" font-size:18px; border:1px solid #CCC; background-color:#E2E2E2; padding:5px 1px"><b>最新赛事视频</b></div>
+
+<div>
+<ul class="ss-video-tab" data-class="News-list" id="ss-news">
+<li onClick="changeblx1(0)">最新赛事</li>
+<li onClick="changeblx1(2)">欧冠</li>
+<li onClick="changeblx1(3)">英格兰</li>
+<li onClick="changeblx1(4)">西班牙</li>
+<li onClick="changeblx1(5)">意大利</li>
+<li onClick="changeblx1(6)">德意志</li>
+
+<li onClick="changeblx1(7)">中超-亚冠</li>
+<li onClick="changeblx1(8)">国际赛事</li>
+<li onClick="changeblx1(9)">NBA</li>
+<li onClick="changeblx1(10)">体育节目</li>
+<li onClick="changeblx1(11)">其他赛事</li>
+</ul>
+<ul class="ss-video-tab1">
+<li class="rep-race">Time</li>
+<li class="rep-title">Game Name</li>
+<li class="rep-titleplayer">Game Players</li>
+<li class="rep-map">State</li>
+<li class="rep-date">Highlight</li>
+<li class="rep-rating" onClick="changeblx1(12)">Rating</li>
+</ul>
+</div>
+
+
+<div class="ssbody" id="rep61379">
+{% autopaginate video_list 30 %}
+<ul class="ssitem">
+{% for x in video_list %}
+<li class="c_r">{{x.game_time|date:"n月j日"}}</li>
+<li class="c_p">{{x.game_leixin}}</li>
+<li class="c_m">{%ifequal x.important_id 5%}<b style="color:#F03">{{x.game_players}}</b>{%else%}{%ifequal x.important_id 4%}<b style="color:#369">{{x.game_players}}</b>{%else%}{{x.game_players}}{%endifequal%}{%endifequal%}</li>
+
+{%ifequal x.state.state 'OK' %}
+<li class="c_t"><a href="javascript:showvideo({{x.id}})">
+OK</a></li>
+{% else %}
+<li class="c_t">Waiting</li>
+{% endifequal %}
+
+{% if x.rejijin %}
+<li class="c_t1">
+{%for re in x.rejijin%}
+<a {%if re.outside%} href="{{re.addr_pc}}" {%else%}href="../jijin/?idj={{re.id}}&idr={{x.id}}&ss=0"{%endif%} target="_blank" style="text-decoration:none;margin-left:10px">集锦</a>
+{%endfor%}
+</li>
+{% else %}
+<li class="c_t1">
+<span style="text-decoration:line-through;color:#000;margin-left:10px">集锦
+</span>
+</li>
+{%endif%}
+<li class="c_t2"><b>{{x.important|safe}}</b></li>
+
+<li id="{{x.id}}" style="display:none;font-size:15px;width:960px">
+
+<i class="fa fa-play fa-1x" style="margin-left:75px">PLAY</i>
+{%if x.restream %}
+{% for y in x.restream%}
+<a href="../stream/?gid={{y.id}}&id={{x.id}}" target="_blank" style="margin-left:24px;">{{y.orginname.src|safe}}:&nbsp;{{y.language}}/{{y.quality}}<i class="fa fa-play fa-1x"></i></a>
+
+{%endfor%}
+{%else%}
+{%endif%}
+{%if x.rejijin%}
+{%for i in x.rejijin%}
+{%if i.addr_ss %}
+<a href="../jijin/?id={{x.id}}&ss=1" target="_blank" style="margin-left:24px;"><img src="../resource/photo/ssweb.png" width="20px"></img>Ss集锦<i class="fa fa-play fa-1x"></i></a>
+{%endif%}
+{%endfor%}
+{%else%}
+{%endif%}
+<br />
+
+<i class="fa fa-video-camera fa-1x" style="margin-left:75px">REP</i>
+{%if x.revideo %}
+{% for z in x.revideo%}
+
+<a href="../video/?zid={{z.id}}&xid={{x.id}}" target="_blank" style="margin-left:30px;">{%if z.videotvname%}{{z.videotvname}}{%endif%}{{z.language}}/{{z.quality}}({{z.video_size}})<i class="fa fa-download fa-1x"></i></a>
+
+{%endfor%}
+{%else%}
+{%endif%}
+<br />
+<i style="margin-left:780px;">posted by {{x.author}}</i>
+</li>
+
+{%endfor%}
+</ul>
+<script>
+function showvideo(x)
+{if($('#'+x).css('display')=="none"){$('#'+x).css('display','block')} else {$('#'+x).css('display','none')}}
+</script>
+</div>
+<div class="ss-rep-more">{% paginate %}</div>
+</div>
+
+</div>
+</div>
+
+{%include 'bottomexp.html'%}
+
+<a href="#my-gotop"  id="gotop" style="position:fixed; bottom:30px; right:30px;" class="uk-button"  data-uk-smooth-scroll><i class="fa fa-arrow-up fa-1x"></i></a>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<h4 style="text-align:center; margin-bottom:5px">{{cht.chinese_name}}俱乐部</h4>
+<span style="margin-left:20px;">主场：</span><b>{{cht.ground}}</b><br />
+<span style="margin-left:20px">教练：</span><b>{{chcoach.chinese_name}}({{chcoach.english_name}})</b><br />
+<span style="margin-left:20px">球衣赞助：</span><b>{{cht.clo_sponser}}</b><br />
+<span style="margin-left:20px">官网：</span><b><a href="{{cht.website}}" target="_blank">{{cht.website}}</a></b>
+<hr style="margin-bottom:1px" />
+<span style="margin-left:130px;">守门员</span>
+<div style="margin-left:10px;line-height:25px">
+{%for x in chkeep%}
+<a onMouseOver="gamemanshow({{x.id}})" onmouseout="gamemanhide({{x.id}})">{{x.gamenum}}号{{x.chinese_name}}({{x.english_name}})&nbsp;&nbsp;</a>
+<table id='{{x.id}}'>
+<tr>
+<td>国籍：<b>{{x.nation}}</b>;</td>
+<td colspan="2">出生日期：<b>{{x.birthday|date:'Y/m/d'}}</b></td></tr>
+</table>
+{%endfor%}
+</div>
+<span style="margin-left:130px">后卫</span>
+<div style="margin-left:10px;line-height:25px">
+{%for x in chdef%}
+<a onMouseOver="gamemanshow({{x.id}})" onmouseout="gamemanhide({{x.id}})">{{x.gamenum}}号{{x.chinese_name}}({{x.english_name}})&nbsp;&nbsp;</a>
+<table id='{{x.id}}'>
+<tr>
+<td>国籍：<b>{{x.nation}}</b>;</td>
+<td colspan="2">出生日期：<b>{{x.birthday|date:'Y/m/d'}}</b></td></tr>
+</table>
+{%endfor%}
+</div>
+
+<span style="margin-left:130px">中场</span>
+<div style="margin-left:10px;line-height:25px">
+{%for x in chmid%}
+<a onMouseOver="gamemanshow({{x.id}})" onmouseout="gamemanhide({{x.id}})">{{x.gamenum}}号{{x.chinese_name}}({{x.english_name}})&nbsp;&nbsp;</a>
+<table id='{{x.id}}'>
+<tr>
+<td>国籍：<b>{{x.nation}}</b>;</td>
+<td colspan="2">出生日期：<b>{{x.birthday|date:'Y/m/d'}}</b></td></tr>
+</table>
+{%endfor%}
+</div>
+
+<span style="margin-left:130px">前锋</span>
+<div style="margin-left:10px;line-height:25px">
+{%for x in chforw%}
+<a onMouseOver="gamemanshow({{x.id}})" onmouseout="gamemanhide({{x.id}})">{{x.gamenum}}号{{x.chinese_name}}({{x.english_name}})&nbsp;&nbsp;</a>
+<table id='{{x.id}}'>
+<tr>
+<td>国籍：<b>{{x.nation}}</b>;</td>
+<td colspan="2">出生日期：<b>{{x.birthday|date:'Y/m/d'}}</b></td></tr>
+</table>
+{%endfor%}
+</div>
+
+<span style="margin-left:130px">租借在外</span>
+<div style="margin-left:10px;line-height:25px">
+{%if chhire%}
+{%for x in chhire%}
+<a onMouseOver="gamemanshow({{x.id}})" onmouseout="gamemanhide({{x.id}})">{{x.chinese_name}}({{x.english_name}})&nbsp;&nbsp;</a>
+<table id='{{x.id}}'>
+<tr>
+<td>国籍：<b>{{x.nation}}</b>;</td>
+<td>出生日期：<b>{{x.birthday|date:'Y/m/d'}}</b></td></tr>
+</table>
+{%endfor%}
+{%endif%}
+</div>

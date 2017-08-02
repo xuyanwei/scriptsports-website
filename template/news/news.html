@@ -1,0 +1,77 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="最新、最快、最全的体育新闻，赛事瞭望">
+    <meta name="keywords" content="足球转会，篮球转会，球员观察，赛事视点">
+    <link rel="icon" href="../resource/photo/ssweb.png" type="image/x-icon" />
+    <title>欢迎来到ScriptSports</title>     
+    <link href="../resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="../resource/css/ssmain.css" rel="stylesheet" type="text/css">
+     <link href="../resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />   
+    <script type="text/javascript" src="../resource/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resource/uikit/js/uikit.min.js"></script>
+	 <script src="../resource/js/ssmain.js" type="text/javascript"></script>
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%; overflow:auto;">
+
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+        <ul>
+            <li>
+                <a href=".."><span>首页</span></a>
+            </li>
+            <li>
+                <a href="../news" style="background:#FF7; color:#000"><span>最新动态</span></a>
+            </li>
+            <li>
+                <a href="../data">资料库</a>
+            </li>
+            <li>
+                <a  href="../video_list">高清视频</a>
+            </li>
+            <li>
+            <a href="../live">赛事日历</a></li>
+            <li>
+            <a href="../bbs">社区</a></li>
+          
+        </ul>
+</div>
+
+<!--主要内容-->
+<div class="main">
+
+<div style="height:60px;">
+<form>
+<input style="width:600px;height:40px;margin:20px 140px;font-size:18px;border-radius:5px;" class="sdt" name="search"></input>
+<button style="width:100px; margin:0 -110px; border-radius:5px; height:40px;" class="sdt">Go</button>
+</form></div>
+
+<div class="news1234"><a href="javascript:news1234(0)"><b>ScriptSports最新</b></a><a href="javascript:news1234(1)"><b>ScriptSports足球</b></a><a href="javascript:news1234(2)"><b>ScriptSports篮球</b></a><a href="javascript:news1234(3)"><b>ScriptSports其它</b></a></div>
+
+<div class="news_list">
+{% load pagination_tags %}
+<ul>
+{% autopaginate newslist 40 %}
+{%for p in newslist%}
+<li><span>[{{p.newsleixin}}]</span><a href="../news_deta/?nd={{p.id}}" target="_blank" style="{%if p.important%} color:#F03{%else%}{%endif%}">{{p.title}}</a><span class="time_create">{{p.time|date:'Y-m-d'}}</span></li> 
+<hr />
+{%endfor%}
+</ul>
+<div style="text-align:center">{% paginate %}</div>
+</div>
+
+</div>
+
+{%include 'bottomexp.html'%}
+
+<a href="#my-gotop"  id="gotop" style="position:fixed; bottom:30px; right:30px;" class="uk-button"  data-uk-smooth-scroll><i class="fa fa-arrow-up fa-1x"></i></a>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="最新、最快、最全的体育赛事直播，赛事视频，赛事集锦" />
+    <meta name="keywords" content="足球直播，欧冠直播，英超直播，西甲直播，中超直播，NBA直播，足球视频，NBA视频，足球下载，赛事专业解析" />
+    <link rel="icon" href="resource/photo/ssweb.png" type="image/x-icon" />   
+    <title>欢迎来到脚本体育ScriptSports</title>   
+    <link href="resource/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" type="text/css" />
+    <link href="resource/css/ssmain.css" rel="stylesheet" type="text/css" />  
+    <link href="resource/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="resource/css/vidoe_list.css" rel="stylesheet" type="text/css">
+    <link href="resource/css/bbs.css" rel="stylesheet" type="text/css">
+    <script src="resource/js/jquery.min.js" type="text/javascript"></script>
+    <script src="resource/uikit/js/uikit.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="resource/js/ssmain.js"></script>
+</head>
+
+<body style="margin:0 auto;padding:0;height:100%;overflow:auto;" onload="document.body.scrollTop='0px';">
+{%include 'Topbar.html'%}
+{%include 'advshort.html'%}
+
+<!--导航条-->
+<div class="menu">
+  <ul>
+    <li><a href="">首页</a></li>
+    <li><a href="news">最新动态</a></li>
+    <li><a href="data">资料库</a></li>
+    <li><a href="video_list">高清视频</a></li>
+    <li><a href="live">赛事日历</a></li>
+    <li><a href="bbs">社区</a></li>
+  </ul>
+</div>
+
+<!--主要内容-->
+<div class="main">
+<!-- 左边新闻头条 -->
+<div class="mainl">
+        	
+<div style="margin-left:30px;margin-top:15px;">
+<h2><a style="COLOR:#ff1800;" href="news_deta/?nd={{onetitle.id}}" target="_blank" title="{{onetitle.title}}">{{onetitle.title|slice:"23"}}</a></h2></div>
+                
+<div>
+<ul class="ss-tab" id="ss-news" style="font-size:16px;">
+<li class="hover" onClick="newsch(0)">Ss最新</li>
+<li class="hover" onClick="newsch(1)">Ss足球</li>
+<li class="hover" onClick="newsch(2)">Ss篮球</li>
+<li class="hover" onClick="newsch(3)">Ss精华</li>
+<li class="more"><a href="news">更多&raquo;</a></li></ul>
+
+<!--新闻标题字数不超过22字，新闻条数不超过11条-->
+<ul class="News-list">
+
+{%for p in p_mraw1 %}
+{%if p.important %}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank" style="color:#F03">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%else%}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%endif%}
+{%endfor%}
+
+<hr />
+{%for p in p_mraw2 %}
+{%if p.important %}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank" style="color:#F03">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%else%}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{% endif %}
+{%endfor%}
+<hr />
+{%for p in p_mraw3 %}
+{%if p.important %}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank" style="color:#F03">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{%else%}
+<li><em>[{{p.time|date:"m/d"}}]</em>
+<a href="news_deta/?nd={{p.id}}" target="_blank">
+<span>[{{p.newsleixin}}]{{p.title}}</span>
+</a>
+</li>
+{% endif %}
+{%endfor%}
+
+</ul>
+</div>
+</div>
+
+<!--右边赛事日历-->
+<div style="width:477px;float:right;border:1px solid #ccc;box-shadow:0 0 1px;margin-top:2px; margin-right:2px;border-top:hidden;">
+
+<div style="width:auto;height:100px;margin-top:1px;margin-right:1px;margin-left:1px;">
+    <script type="text/javascript">
+	$(function()
+	{timeshow()});
+    </script>
+<div style="float:left;width:195px;height:100px; border:5px solid #FFF;background-color:#076ea8;">
+
+<br />
+<center><i id="date" style="font-size: 18px; color: #EEEEEE; font-style:normal"></i></center>
+<hr />
+<center><i style="color:#FFF;font:20px/0.6 Microsoft Yahei, SimSun, 宋体, Arial, HELVETICA, sans-serif, Tahoma;" id="time"></i></center>
+</div>
+
+<div style="float:right;height:100px; width:255px; border:1px solid #CCC; margin-top:5px;margin-bottom:10px; margin-right:5px;background-color:#076ea8;">
+<iframe width="250" scrolling="no" height="100" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=8&color=%23FFFFFF&bgc=%23076EA8&icon=3&num=2"></iframe>
+</div>
+
+</div>
+
+<hr  width="475"/>
+<div class="ss-title1"><h2>赛事日历(Match Calendar)</h2></div>
+
+<div class="Calendar-box">
+<table width="470" style="font-size:13px; margin-top:10px">
+<!--注意：不超过9条电视预告-->
+{% for x in tvshow %}
+<tr>
+  <td>{{x.game_time|date:"m/j/H:i"}}</td>
+    <td >{%if x.game_important%}<span style="color:#900">{{x.game_vs}}</span>
+    {%else%}{{x.game_vs}}{%endif%}</td>
+    <td style="color:#096">{{x.game_leixin}}</td>
+    <td style="text-align:right;">
+    {%for p in x.gettvname %}
+    <a href="#{{p.name}}" data-uk-modal="{target:'#{{p.name}}',bgclose:false}">{{p.name}}</a>
+    {%include 'smallwin.html'%}
+    {%endfor%}     
+</td>    
+</tr>
+{%endfor%}
+</table>
+<hr style="width:0" />
+</div>
+
+<ul class="ss-tab1"><li class="hover" onClick="showch(0)"><i class="fa fa-th-list"></i>全部</li><li class="hover" onClick="showch(1)">足球</li><li class="hover" onClick="showch(2)">篮球</li>
+<li class="hover" onClick="showch(3)">其它</li>
+</ul>
+</div>
+
+<div style="float:right;border:1px solid #CCC;height:194px;width:477px;margin-right:2px; margin-top:4px">
+
+<div style="font-size:17px; border:1px solid #CCC;background-color:#ECECEC;height:23px;"><span style="margin-left:5px;margin-top:2px">[深度]体育战术观点区</span></div>
+
+<div class="sdguandian">
+<ul>
+{%for p in p_craw %}
+<li><span>[{{p.sportsleixin}}]</span>
+<a href="news_deta/?nd={{p.id}}" target="_blank" title="{{p.title}}" style={%if p.important%}"color:#C00"{%else%}"color:#333"{%endif%}>{{p.title|slice:'21'}}</a>
+</li>
+{%endfor%}
+</ul>
+</div>
+
+<div class="weibomingren">
+<p style="margin-top:5px">
+<a href="http://weibo.com/zhanglusoccer" target="_blank" style="margin-left:8px">张路</a>
+<a href="http://weibo.com/huangjianxiang" target="_blank" style=" margin-left:12px">黄健翔</a>
+</p>
+<p>
+<a href="http://weibo.com/hewei" target="_blank" style="margin-left:2px">贺炜</a>
+<a href="http://weibo.com/zhanjun" target="_blank" style="margin-left:4px">詹俊</a>
+<a href="http://weibo.com/yanqiangyq" target="_blank">颜强</a>
+</p>
+<p>
+<a href="http://zwenyuan11.blog.163.com/" style="margin-left:6px" target="_blank">周文渊</a>
+<a href="http://weibo.com/menghongtaoblog" target="_blank">孟洪涛</a>
+</p>
+<p>
+<a href="http://weibo.com/suqun" target="_blank" style="margin-left:1px">苏群</a>
+<a href="http://weibo.com/yugayujia" target="_blank" style="margin-left:4px">于嘉</a>
+<a href="http://weibo.com/loujian" target="_blank">克韩</a>
+</p>
+<p>
+<a href="http://weibo.com/yangyihl" target="_blank" style="margin-left:5px">杨毅</a>
+<a href="http://weibo.com/liuhanghang" target="_blank" style=" margin-left:10px">刘语熙</a>
+</p>
+<a href="http://weibo.com/u/1225963240" style="margin-left:10px" target="_blank">张晓舟</a>
+<a href="http://weibo.com/nba" style="margin-left:8px" target="_blank">NBA</a>
+</div>
+
+</div>
+
+<!--视频区域-->
+<div style="margin:auto; width:1003px;border:1px solid #ccc;">
+
+<div style="width:1003px;border:1px solid #ccc;margin-top:5px;float:left;">
+
+<div style="font-size:18px;border:1px solid #CCC;background-color:#E2E2E2; height:25px;"><b style="margin-top:4px">最新赛事视频</b></div>
+
+<div>
+
+<ul class="ss-video-tab" id="ss-news">
+<li onClick="changeblx(0)">最新赛事</li>
+<li onClick="changeblx(2)">欧冠</li>
+<li onClick="changeblx(3)">英格兰</li>
+<li onClick="changeblx(4)">西班牙</li>
+<li onClick="changeblx(5)">意大利</li>
+<li onClick="changeblx(6)">德国</li>
+
+<li onClick="changeblx(7)">中超-亚冠</li>
+<li onClick="changeblx(8)">国际赛事</li>
+<li onClick="changeblx(9)">NBA</li>
+<li onClick="changeblx(10)">体育节目</li>
+<li onClick="changeblx(11)">其他赛事</li>
+</ul>
+<ul class="ss-video-tab1">
+<li class="rep-race">Time</li>
+<li class="rep-title">Game Name</li>
+<li class="rep-titleplayer">Game Players</li>
+<li class="rep-map">State</li>
+<li class="rep-date">Highlight</li>
+<li class="rep-rating" onClick="changeblx(12)">Rating</li>
+</ul>
+</div>
+
+<div class="ssbody" id="rep61379">
+<ul class="ssitem">
+{% for x in video_list %}
+<li class="c_r">{{x.game_time|date:"n月j日"}}</li>
+<li class="c_p">{{x.game_leixin}}</li>
+<li class="c_m">{%ifequal x.important_id 5%}<b style="color:#F03">{{x.game_players}}</b>{%else%}{%ifequal x.important_id 4%}<b style="color:#369">{{x.game_players}}</b>{%else%}{{x.game_players}}{%endifequal%}{%endifequal%}</li>
+
+{%ifequal x.state.state 'OK' %}
+<li class="c_t"><a href="javascript:showvideo({{x.id}})">
+OK</a></li>
+{% else %}
+<li class="c_t">Waiting</li>
+{% endifequal %}
+
+{% if x.rejijin %}
+<li class="c_t1">
+{%for re in x.rejijin%}
+<a {%if re.outside%} href="{{re.addr_pc}}" {%else%}href="jijin/?idj={{re.id}}&idr={{x.id}}&ss=0"{%endif%} target="_blank" style="text-decoration:none;margin-left:10px">集锦</a>
+{%endfor%}
+</li>
+{% else %}
+<li class="c_t1">
+<span style="text-decoration:line-through;color:#000;margin-left:10px">集锦
+</span>
+</li>
+{%endif%}
+<li class="c_t2"><b>{{x.important|safe}}</b></li>
+
+<li id="{{x.id}}" style="display:none;font-size:15px;width:960px">
+
+<i class="fa fa-play fa-1x" style="margin-left:80px">PLAY</i>
+{%if x.restream %}
+{% for y in x.restream%}
+<a {%if y.outside%}href="{{y.addr_pc_1}}"{%else%}href="stream/?gid={{y.id}}&id={{x.id}}"{%endif%} target="_blank" style="margin-left:26px;">{{y.orginname.src|safe}}:{{y.language}}/{{y.quality}}<i class="fa fa-play fa-1x"></i></a>
+{%endfor%}
+{%else%}
+{%endif%}
+{%if x.rejijin%}
+{%for i in x.rejijin%}
+{%if i.addr_ss %}
+<a href="jijin/?id={{x.id}}&ss=1" target="_blank" style="margin-left:26px;"><img src="../resource/photo/ssweb.png" width="20px"></img>Ss集锦<i class="fa fa-play fa-1x"></i></a>
+{%endif%}
+{%endfor%}
+{%else%}
+{%endif%}
+<br />
+
+<i class="fa fa-video-camera fa-1x" style="margin-left:80px">REP</i>
+{%if x.revideo %}
+{% for z in x.revideo%}
+
+<a href="video/?zid={{z.id}}&xid={{x.id}}" target="_blank" style="margin-left:35px;">{%if z.videotvname%}{{z.videotvname}}{%endif%}{{z.language}}/{{z.quality}}({{z.video_size}})<i class="fa fa-download fa-1x"></i></a>
+
+{%endfor%}
+{%else%}
+{%endif%}
+<br />
+<i style="margin-left:780px;">posted by {{x.author}}</i>
+</li>
+
+{%endfor%}
+</ul>
+<script>
+function showvideo(x)
+{if($('#'+x).css('display')=="none"){$('#'+x).css('display','block')} else {$('#'+x).css('display','none')}}
+</script>
+</div>
+
+<div class="ss-rep-more"><a href="video_list" target="_blank">查看更多>></a></div>
+</div>
+</div>
+<!--<div 可以放广告位>-->
+<!--讨论区域-->
+<div class="ss-lt-box">
+<div class="ss-lt-title"><h2>SriptSports社区内容<span class="more"><a target="_blank" href="#bbssharing" data-uk-modal="{target:'#bbssharing',bgclose:false}">资源分享</a> | <a target="_blank" href="#bbstalking" data-uk-modal="{target:'#bbstalking',bgclose:false}">发起讨论</a></h2></div>
+
+
+<!--分享-->
+<div id="bbssharing" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+<div style="height:210px;width:450px;">
+<strong>ScriptSports资源分享</strong>
+<hr style="width:0" />
+<span style=" margin-left:120px">分享内容请尽量跟体育娱乐有关</span>
+<form method="post" autocomplete="off"  action="../sharing/" style="margin-top:5px; margin-left:0px" onsubmit="return checksharing('{{user.username}}')" id="bbs_sharing" name="bbs_sharing">
+
+<label style="margin-left:50px;"><b>分享标题:</b>
+<input type="text" style="margin-left:5px; width:280px; height:22px;" id="bbs_sharing1" name="bbs_sharing1" /></label>
+<hr style="width:0" />
+<label style="margin-left:50px;"><b>站外地址:</b>
+<input type="text" style="margin-left:5px;width:280px;height:22px;" placeholder="http://..." id="bbs_sharing2" name="bbs_sharing2" />
+</label>
+<hr style="width:430px" />
+<input type="submit" value="分 享" style="width:70px;height:25px;line-height:17px;color:#000;cursor:pointer;margin-left:180px" />
+</form>
+</div>
+    </div>
+</div>
+
+
+<!--讨论-->
+<div id="bbstalking" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+<div style="height:260px;width:470px;">
+<strong>发起讨论</strong>
+<hr style="width:0" />
+<form method="post" autocomplete="off" name="bbs_ttalk" id="bbs_ttalk" onsubmit="return checktalk('{{user.username}}')" action="../ttalk/" style="margin-top:5px;" >
+
+<label style="margin-left:15px;"><b>讨论话题:</b>
+<input type="text" style="margin-left:5px;width:300px;height:22px;" id="bbs_ttalk1" name="bbs_ttalk1" /></label>
+<hr style="width:0" />
+<label style="margin-left:15px;"><b>讨论内容:</b>
+<textarea placeholder="不少于5个字..." style="width:300px; height:100px; margin-left:5px" id="bbs_ttalk2" name="bbs_ttalk2">
+</textarea> 
+</label>
+<hr />
+<input type="submit" value="提 交" style="width:70px;height:25px;line-height:17px;color:#000;cursor:pointer;margin-left:170px" />
+</form>
+</div>
+    </div>
+</div>
+ 
+<div class="ss-bbs-left">
+   <h3><b>体育资源链接分享</b></h3>
+   <ul>
+   {%for s in sharing%}
+   <li>【{{s.sname|slice:"5"}}】分享了---<a href='{{s.address}}' title="{{s.title}}" target='_blank' {%if s.imp %}style="color:#F03"{%else%}{%endif%}>{{s.title|slice:"18"}}</a><a title="favorites"><i class="fa fa-heart-o" style="float:right;" onClick="add_like('{{user}}',{{s.id}},{{s.like_count}})">{%if s.like_count%}{{s.like_count}}{%else%}0{%endif%}</i></a></li>
+   {%endfor%}
+   </ul>
+</div>
+
+<div class="ss-bbs-right">
+ <h3><b>发起讨论（请勿透露赛事比分）</b></h3>
+ <ul class="Clear">
+ {%for t in talk%}
+ <li>[{{t.tname|slice:"5"}}]发起讨论-<a href="bbs_talk/?talk={{t.id}}" title="{{t.title}}" target='_blank' {%if t.ttop %}style="color:#F03"{%else%}{%endif%}>{{t.title|slice:"18"}}</a></li>
+{%endfor%}
+ </ul>
+</div>
+</div>
+
+<div class="idbotton">
+<h3>
+友情链接：<a href="http://sports.sina.com.cn" target="_blank">新浪体育&nbsp;</a>
+<a href="http://espn.go.com" target="_blank">ESPN&nbsp;</a>
+<a href="http://sports.cntv.cn" target="_blank">CCTV&nbsp;</a>
+<a href="http://china.nba.com/" target="_blank">NBA中国&nbsp;</a>
+<a href="http://nav.sriptsports.com" target="_blank">SriptSoprts导航&nbsp;</a></h3>
+</div>
+</div>
+
+{%include 'bottomexp.html'%}
+
+<a href="#my-gotop"  id="gotop" style="position:fixed; bottom:30px; right:30px;" class="uk-button"  data-uk-smooth-scroll><i class="fa fa-arrow-up fa-1x"></i></a>
+
+</body>
+</html>
